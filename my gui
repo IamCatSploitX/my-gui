@@ -1,0 +1,1149 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local key = Instance.new("ScreenGui")
+local KeyFrame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Check = Instance.new("TextButton")
+local key_2 = Instance.new("TextBox")
+local Frame = Instance.new("Frame")
+local OPEN = Instance.new("TextButton")
+
+--Properties:
+
+key.Name = "key"
+key.Parent = game.CoreGui
+key.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+KeyFrame.Name = "KeyFrame"
+KeyFrame.Parent = key
+KeyFrame.BackgroundColor3 = Color3.fromRGB(21, 0, 58)
+KeyFrame.Position = UDim2.new(0.365082502, 0, 0.287116557, 0)
+KeyFrame.Size = UDim2.new(0, 451, 0, 276)
+KeyFrame.Draggable = true
+KeyFrame.Active = true
+
+TextLabel.Parent = KeyFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.Size = UDim2.new(0, 451, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "key system"
+TextLabel.TextColor3 = Color3.fromRGB(1, 255, 107)
+TextLabel.TextSize = 51.000
+
+Check.Name = "Check"
+Check.Parent = KeyFrame
+Check.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Check.Position = UDim2.new(0.277161866, 0, 0.728260875, 0)
+Check.Size = UDim2.new(0, 200, 0, 50)
+Check.Font = Enum.Font.SourceSans
+Check.Text = "CHECK KEY"
+Check.TextColor3 = Color3.fromRGB(1, 255, 107)
+Check.TextSize = 46.000
+Check.MouseButton1Down:connect(function()
+    local function LZSRSGP_fake_script() -- Check.LocalScript 
+        local script = Instance.new('LocalScript', Check)
+
+        local key = script.Parent.Parent.key
+
+        script.Parent.MouseButton1Click:Connect(function()
+            if key.Text == "ShadowCat" then -- Make the "Key" whatever you wish.
+                script.Parent.Parent:TweenPosition(UDim2.new(0.383,0,-0.9,0), "Out", "Quad", 1, true)
+                script.Parent.Parent.Parent.Frame.Visible = true
+                wait(5)
+                script.Parent.Parent:Destroy() -- Destroys the GUI after a set time
+                print("Destroyed!")
+            elseif -- Tweening | If you want it to do a different tween just change the "Quad" to another tween animation
+                key.Text == "" then
+                key.Text = "" else
+                key.Text = "Incorrect, try again."
+                wait(1)
+                key.Text = ""
+            end
+        end)
+
+    end
+    coroutine.wrap(LZSRSGP_fake_script)()
+end)
+
+key_2.Name = "key"
+key_2.Parent = KeyFrame
+key_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+key_2.Position = UDim2.new(0.277161866, 0, 0.409420282, 0)
+key_2.Size = UDim2.new(0, 200, 0, 50)
+key_2.Font = Enum.Font.SourceSans
+key_2.Text = "KEY HERE"
+key_2.TextColor3 = Color3.fromRGB(1, 255, 107)
+key_2.TextSize = 14.000
+
+Frame.Parent = key
+Frame.BackgroundColor3 = Color3.fromRGB(21, 0, 58)
+Frame.Position = UDim2.new(-4.85181808e-05, 0, 0.93006134, 0)
+Frame.Size = UDim2.new(0, 480, 0, 57)
+Frame.Visible = false
+
+OPEN.Name = "OPEN"
+OPEN.Parent = Frame
+OPEN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OPEN.Position = UDim2.new(0.0166666619, 0, 0.169570267, 0)
+OPEN.Size = UDim2.new(0, 463, 0, 37)
+OPEN.Font = Enum.Font.SourceSans
+OPEN.Text = "OPEN GUI"
+OPEN.TextColor3 = Color3.fromRGB(1, 255, 107)
+OPEN.TextSize = 55.000
+OPEN.MouseButton1Down:connect(function()
+    Frame.Active = false
+    Frame.Visible = false
+    -- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(21, 0, 58)
+Frame.Position = UDim2.new(0.383574873, 0, 0.37299034, 0)
+Frame.Size = UDim2.new(0, 325, 0, 213)
+Frame.Draggable = true
+Frame.Active = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.Position = UDim2.new(0.192136765, 0, 0.378062606, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Game Breaker"
+TextButton.TextColor3 = Color3.fromRGB(0, 255, 149)
+TextButton.TextSize = 14.000
+TextButton.MouseButton1Down:connect(function()
+    local Toggle = false -- says if its on or not
+    local args = { -- this is just a list to see what is in it and what needs to be run
+        [1] = "Game Breaker Made By Noob_dabomb8", -- this displays a msg when u execute the script
+        [2] = "All" -- this makes it so everyone can see the message
+    }
+
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args)) -- this makes the message be chatted
+
+    local m = game:GetService"Players".LocalPlayer:GetMouse() -- this finds where your clicking not really needed but helpful
+    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg) -- if the message below is chatted it starts the function
+        if string.lower(msg) == ".breakon" and Toggle == false then -- if .breakon is chatted then if its off it will turn on
+            Toggle = true -- this turns it on
+        elseif string.lower(msg) == ".breakoff" and Toggle == true then -- if you chat .breakoff and its on it turns it off
+            Toggle = false -- this turns it off
+        end -- gotta have this so u know when it ends same with the one below
+    end)
+
+    spawn(function() -- this starts the function if its on
+        while wait() do -- this is a loop if its waiting then it will start the stuff below
+            if Toggle == true then -- this is the requirement to turn it on
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", true)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", true)
+            end
+        end
+    end)
+end)
+
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.Size = UDim2.new(0, 325, 0, 28)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Made By noob_dabomb8"
+TextLabel.TextColor3 = Color3.fromRGB(0, 255, 149)
+TextLabel.TextSize = 14.000
+-- Made by noob_dabomb14
+-- Only works on wizard life
+-- Fixed by CODEX
+
+-- Instances:
+
+local NoobsGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Label = Instance.new("TextLabel")
+local Wlgui = Instance.new("TextButton")
+local antiafk = Instance.new("TextButton")
+local spamscript = Instance.new("TextButton")
+local autograbgalleons = Instance.new("TextButton")
+local Opautoblock = Instance.new("TextButton")
+
+--Properties:
+
+NoobsGui.Name = "Noob's Gui"
+NoobsGui.Parent = game.CoreGui
+NoobsGui.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = NoobsGui
+Main.BackgroundColor3 = Color3.fromRGB(21, 0, 58)
+Main.Position = UDim2.new(0.611925721, 0, 0.623604476, 0)
+Main.Size = UDim2.new(0, 389, 0, 219)
+Main.Active = true
+Main.Draggable = true
+
+Label.Name = "Label"
+Label.Parent = Main
+Label.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Label.Size = UDim2.new(0, 389, 0, 50)
+Label.Font = Enum.Font.Fondamento
+Label.Text = "Noob's Gui || Made by: Noob"
+Label.TextColor3 = Color3.fromRGB(1, 255, 107)
+Label.TextSize = 30.000
+
+Wlgui.Name = "Wl gui"
+Wlgui.Parent = Main
+Wlgui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Wlgui.Position = UDim2.new(0.0514138825, 0, 0.283105016, 0)
+Wlgui.Size = UDim2.new(0, 160, 0, 35)
+Wlgui.Font = Enum.Font.SourceSans
+Wlgui.Text = "Inf Yield"
+Wlgui.TextColor3 = Color3.fromRGB(0, 255, 149)
+Wlgui.TextSize = 14.000
+Wlgui.MouseButton1Down:connect(function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+antiafk.Name = "anti afk"
+antiafk.Parent = Main
+antiafk.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+antiafk.Position = UDim2.new(0.526992261, 0, 0.283105016, 0)
+antiafk.Size = UDim2.new(0, 160, 0, 35)
+antiafk.Font = Enum.Font.SourceSans
+antiafk.Text = "Anti Afk"
+antiafk.TextColor3 = Color3.fromRGB(0, 255, 149)
+antiafk.TextSize = 14.000
+antiafk.MouseButton1Down:connect(function()
+    wait(0.5)local ba=Instance.new("ScreenGui")
+    local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+    local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+    ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+    ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+    ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,304,0,52)
+    ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk Kick Script"ca.TextColor3=Color3.new(0,1,1)
+    ca.TextSize=22;da.Parent=ca
+    da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+    da.Size=UDim2.new(0,304,0,107)_b.Parent=da
+    _b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+    _b.Size=UDim2.new(0,304,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by XxSwordmaster_2xX"
+    _b.TextColor3=Color3.new(1,1,1)_b.TextSize=20;ab.Parent=da
+    ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377379,0)
+    ab.Size=UDim2.new(0,304,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Script Started"
+    ab.TextColor3=Color3.new(1,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+    game:service'Players'.LocalPlayer.Idled:connect(function()
+        bb:CaptureController()bb:ClickButton2(Vector2.new())
+        ab.Text="You went idle and ROBLOX tried to kick you but we reflected it!"wait(2)ab.Text="Script Re-Enabled"end)
+end)
+
+spamscript.Name             = "spam script"
+spamscript.Parent           = Main
+spamscript.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+spamscript.Position         = UDim2.new(0.0514138825, 0, 0.511415482, 0)
+spamscript.Size             = UDim2.new(0, 160, 0, 35)
+spamscript.Font             = Enum.Font.SourceSans
+spamscript.Text             = "Tp Walk"
+spamscript.TextColor3       = Color3.fromRGB(0, 255, 149)
+spamscript.TextSize         = 14.000
+spamscript.MouseButton1Down:connect(function()
+local Keydown = "g"
+
+local m = game:GetService"Players".LocalPlayer:GetMouse()
+m.KeyDown:connect(function(k)
+   if k == Keydown then
+game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", false)
+   end
+   end)
+    local Key = "g" -- Key that toggles script
+    local plr = game.Players.LocalPlayer
+    local char       =  plr.Character
+    local mouse       =  plr:GetMouse()
+    local KeyDown = false
+    Toggle  = false
+
+mouse.KeyDown:connect(function(key)
+        if key == Key then
+            if Toggle == true then
+                Toggle = false
+            else if Toggle == false then
+                    Toggle = true
+                end
+            end
+        end
+    end)
+
+spawn(function() -- this starts the function if its on
+        while wait() do -- this is a loop if its waiting then it will start the stuff below
+            if Toggle == true then -- this is the requirement to turn it on
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak")
+                wait(0.1)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate")
+                local plr     = game.Players.LocalPlayer    local char = plr.Character  char.Humanoid.WalkSpeed =199
+                elseif Toggle == false then
+        local plr = game.Players.LocalPlayer    local char = plr.Character  char.Humanoid.WalkSpeed =16
+            end
+            end
+            end)
+            end)
+
+autograbgalleons.Name = "auto grab galleons"
+autograbgalleons.Parent = Main
+autograbgalleons.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+autograbgalleons.Position = UDim2.new(0.526992261, 0, 0.511415482, 0)
+autograbgalleons.Size = UDim2.new(0, 160, 0, 35)
+autograbgalleons.Font = Enum.Font.SourceSans
+autograbgalleons.Text = "Auto Grab Galleons"
+autograbgalleons.TextColor3 = Color3.fromRGB(0, 255, 149)
+autograbgalleons.TextSize = 14.000
+autograbgalleons.MouseButton1Down:connect(function()
+    local TweenService = game:GetService("TweenService")
+
+local LocalPlayer = game.Players.LocalPlayer
+
+function TweenPlayerToPart(Position)
+    local cframe = CFrame.new(Position)
+
+    local info = TweenInfo.new(1)
+    
+    local tween = TweenService:Create(LocalPlayer.Character.HumanoidRootPart, info, {CFrame = cframe})
+
+    tween:Play()
+end
+
+if workspace:FindFirstChild("Loots") then
+    --workspace.Loots.Loot.Loot.Size = Vector3.new(1000, 1000, 1000)
+    TweenPlayerToPart(workspace.Loots.Loot.Loot.Position)
+end
+
+workspace.DescendantAdded:Connect(function(descendant)
+    if descendant.Name == "Loot" then
+        if descendant:IsA("Model") then
+            local LootBag = descendant:FindFirstChild("Loot")
+
+            if LootBag:IsA("BasePart") or LootBag:IsA("MeshPart") then
+                --LootBag.Size = Vector3.new(1000, 1000, 1000)
+                TweenPlayerToPart(LootBag.Position)
+            end
+        elseif descendant:IsA("MeshPart") then
+            --descendant.Size = Vector3.new(1000, 1000, 1000)
+            TweenPlayerToPart(descendant.Position)
+        end
+    end
+end)
+end)
+
+Opautoblock.Name = "Op auto block"
+Opautoblock.Parent = Main
+Opautoblock.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Opautoblock.Position = UDim2.new(0.29305914, 0, 0.753424644, 0)
+Opautoblock.Size = UDim2.new(0, 160, 0, 35)
+Opautoblock.Font = Enum.Font.SourceSans
+Opautoblock.Text = "Autoblock on"
+Opautoblock.TextColor3 = Color3.fromRGB(0, 255, 149)
+Opautoblock.TextSize = 14.000
+Opautoblock.MouseButton1Down:connect(function()
+local args = {
+    [1] = "Autoblock Made By noob_dabomb8 and aeon_bffr",
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+
+local enabled = false
+local key = "f"
+
+local m = game:GetService"Players".LocalPlayer:GetMouse()
+m.KeyDown:connect(function(k)
+if k == key then enabled = not enabled
+   end
+end)
+
+function Autoblock()
+game.ReplicatedStorage.Events.WandEvent:FireServer(3)
+wait(1.983)
+end
+
+spawn(function()
+   while wait() do
+       if enabled then
+           repeat
+               Autoblock()
+           until enabled == false
+       end
+   end
+end)
+end)
+
+local Keydown = "h"
+
+local m = game:GetService"Players".LocalPlayer:GetMouse()
+m.KeyDown:connect(function(k)
+   if k == Keydown then
+       local args = {
+    [1] = 1,
+    [2] = "W3"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 1,
+    [2] = "W4"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 1,
+    [2] = "W5"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 4,
+    [2] = "I1"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 1,
+    [2] = "W3"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 1,
+    [2] = "W4"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 1,
+    [2] = "W5"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = 4,
+    [2] = "I1"
+}
+
+game:GetService("ReplicatedStorage").Events.InventoryEvent:FireServer(unpack(args))
+   end
+   end)
+
+local q   = "avada kedavra"
+   local Key = "z" -- Key that toggles script
+   local plr       = game.Players.LocalPlayer
+   local char       =  plr.Character
+   local mouse       =  plr:GetMouse()
+   local KeyDown = false
+   _G.toggle  = false
+   
+function shoot()
+       local v = (mouse.Hit.p).unit * Vector3.new(math.random(-1, 1),-50,math.random(-1, 1))
+       local w = v * 100
+       local x = math.random(100, 1000)
+       local y = mouse.Hit.p + -v + Vector3.new(math.random(-1, 1), math.random(200, 2000), math.random(-1, 1)) + -v * math.random(10, 10)
+               plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
+               game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
+   end
+mouse.KeyDown:connect(function(key)
+   if key == Key then
+       if _G.toggle == true then
+           _G.toggle = false
+       else if _G.toggle == false then
+           _G.toggle     = true
+       end
+       end
+   end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local Animate 
+local Humanoid = player.Character:FindFirstChild('Humanoid')
+
+mouse.Button1Down:connect(function()
+   KeyDown       = true
+   while KeyDown == true and _G.toggle do
+ 
+ local Animation = Instance.new("Animation", player.Character)
+  Animation.AnimationId = "rbxassetid://754656200"
+  Animate = Humanoid:LoadAnimation(Animation)
+  Animate:Play(0.5, 1, .5)
+
+wait(0.5)
+Animate:Stop()
+
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+  shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+ shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+shoot()
+   end  
+end)
+
+
+mouse.Button1Up:connect(function()
+   KeyDown = false
+end)
+
+        plr = game.Players.LocalPlayer
+        mouse = plr:GetMouse()
+        mouse.KeyDown:connect(function(key)
+        if key == "e" then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("avada kedavra", "System")
+    game.Players:chat("avada kedavra")
+    elseif key == "r" then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("expulso", "System")
+    game.Players:chat("expulso")
+    elseif key == "t" then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("ascendio", "System")
+    game.Players:chat("ascendio")
+    elseif key == "y" then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("imperio", "System")
+    game.Players:chat("imperio")
+    elseif key == "b" then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("episkey", "System")
+    game.Players:chat("episkey")
+    elseif key == "c" then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("crucio", "System")
+    game.Players:chat("crucio")
+    elseif key == "x" then
+        game:GetService("Players").LocalPlayer.Energy.Value = 15
+        end
+end)
+local q   = "crucio"
+    local Key = "e" -- Key that toggles script
+    local plr       = game.Players.LocalPlayer
+    local char       =  plr.Character
+    local mouse       =  plr:GetMouse()
+    local crucio  = false
+
+    function cruciospam()
+        local v = (mouse.Hit.p - char.HumanoidRootPart.Position).unit/2
+        local w = v *  (300000000)
+        local x = math.random(1, 100)
+        local y = char.HumanoidRootPart.Position + -v * -1
+        plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
+        game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
+    end
+
+    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+   if string.lower(msg) == ".spamcrucio" and crucio == false then
+      crucio = true
+   elseif string.lower(msg) == ".spamcruciooff" and crucio == true then
+   crucio = false
+   end
+end)
+
+
+
+    mouse.Button1Down:connect(function()
+        while crucio do
+            cruciospam()
+            wait(.001)
+        end
+    end)
+    
+    local q   = "imperio"
+    local Key = "e" -- Key that toggles script
+    local plr       = game.Players.LocalPlayer
+    local char       =  plr.Character
+    local mouse       =  plr:GetMouse()
+    local imperio  = false
+
+    function imperiospam()
+        local v = (mouse.Hit.p - char.HumanoidRootPart.Position).unit/2
+        local w = v *  (300000000)
+        local x = math.random(1, 100)
+        local y = char.HumanoidRootPart.Position + -v * -1
+        plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
+        game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
+    end
+
+    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+   if string.lower(msg) == ".spamimperio" and imperio == false then
+      imperio = true
+   elseif string.lower(msg) == ".spamimperiooff" and imperio == true then
+   imperio = false
+   end
+end)
+
+
+
+    mouse.Button1Down:connect(function()
+        while imperio do
+            imperiospam()
+            wait(.001)
+        end
+    end)
+
+    local q   = "stupefy"
+    local Key = "e" -- Key that toggles script
+    local plr       = game.Players.LocalPlayer
+    local char       =  plr.Character
+    local mouse       =  plr:GetMouse()
+    local stupefy  = false
+
+    function stupefyspam()
+        local v = (mouse.Hit.p - char.HumanoidRootPart.Position).unit/2
+        local w = v *  (300000000)
+        local x = math.random(1, 100)
+        local y = char.HumanoidRootPart.Position + -v * -1
+        plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
+        game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
+    end
+
+    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+   if string.lower(msg) == ".spamstupefy" and stupefy == false then
+      stupefy = true
+   elseif string.lower(msg) == ".spamstupefyoff" and stupefy == true then
+   stupefy = false
+   end
+end)
+
+
+
+    mouse.Button1Down:connect(function()
+        while stupefy do
+            stupefyspam()
+            wait(.001)
+        end
+    end)
+
+    local q   = "avada kedavra"
+    local Key = "e" -- Key that toggles script
+    local plr       = game.Players.LocalPlayer
+    local char       =  plr.Character
+    local mouse       =  plr:GetMouse()
+    local avada  = false
+
+    function avadaspam()
+        local v = (mouse.Hit.p - char.HumanoidRootPart.Position).unit/2
+        local w = v *  (300000000)
+        local x = math.random(1, 100)
+        local y = char.HumanoidRootPart.Position + -v * -1
+        plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
+        game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
+    end
+
+    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+   if string.lower(msg) == ".spamavada" and avada == false then
+      avada = true
+   elseif string.lower(msg) == ".spamavadaoff" and avada == true then
+   avada = false
+   end
+end)
+
+
+
+    mouse.Button1Down:connect(function()
+        while avada do
+            avadaspam()
+            wait(.001)
+        end
+    end)
+
+    local q   = "expelliarmus"
+    local Key = "e" -- Key that toggles script
+    local plr       = game.Players.LocalPlayer
+    local char       =  plr.Character
+    local mouse       =  plr:GetMouse()
+    local expelliarmus  = false
+
+    function expelliarmusspam()
+        local v = (mouse.Hit.p - char.HumanoidRootPart.Position).unit/2
+        local w = v *  (300000000)
+        local x = math.random(1, 100)
+        local y = char.HumanoidRootPart.Position + -v * -1
+        plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
+        game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
+    end
+
+    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+   if string.lower(msg) == ".spamexpelliarmus" and expelliarmus == false then
+      expelliarmus = true
+   elseif string.lower(msg) == ".spamexpelliarmusoff" and expelliarmus == true then
+   expelliarmus = false
+   end
+end)
+
+
+
+    mouse.Button1Down:connect(function()
+        while expelliarmus do
+            expelliarmusspam()
+            wait(.001)
+        end
+    end)
+    end)
