@@ -49,7 +49,7 @@ Check.MouseButton1Down:connect(function()
         local key = script.Parent.Parent.key
 
         script.Parent.MouseButton1Click:Connect(function()
-            if key.Text == "e" then -- Make the "Key" whatever you wish.
+            if key.Text == "ShadowCat" then -- Make the "Key" whatever you wish.
                 script.Parent.Parent:TweenPosition(UDim2.new(0.383,0,-0.9,0), "Out", "Quad", 1, true)
                 script.Parent.Parent.Parent.Frame.Visible = true
                 wait(5)
@@ -58,7 +58,7 @@ Check.MouseButton1Down:connect(function()
             elseif -- Tweening | If you want it to do a different tween just change the "Quad" to another tween animation
                 key.Text == "" then
                 key.Text = "" else
-                key.Text = "Incorrect, try again."
+                key.Text = "You are not whitelisted dm CatSploitAdmin#9254."
                 wait(1)
                 key.Text = ""
             end
