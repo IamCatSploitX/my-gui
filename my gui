@@ -96,8 +96,6 @@ OPEN.TextSize = 55.000
 OPEN.MouseButton1Down:connect(function()
     Frame.Active = false
     Frame.Visible = false
-end)
-
 -- Made by noob_dabomb14
 -- Only works on wizard life
 -- Fixed by CODEX
