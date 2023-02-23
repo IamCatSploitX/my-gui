@@ -96,6 +96,7 @@ OPEN.TextSize = 55.000
 OPEN.MouseButton1Down:connect(function()
     Frame.Active = false
     Frame.Visible = false
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Gui Loaded", Text = "Made by noob_dabomb8/Liam"})
 
 -- Made by noob_dabomb14
 -- Only works on wizard life
@@ -134,8 +135,6 @@ Label.Font = Enum.Font.Fondamento
 Label.Text = "Noob's Gui || Made by: Noob"
 Label.TextColor3 = Color3.fromRGB(1, 255, 107)
 Label.TextSize = 30.000
-
-game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Gui Loaded", Text = "Made by noob_dabomb8/Liam"})
 
 Wlgui.Name = "Wl gui"
 Wlgui.Parent = Main
