@@ -135,6 +135,8 @@ Label.Text = "Noob's Gui || Made by: Noob"
 Label.TextColor3 = Color3.fromRGB(1, 255, 107)
 Label.TextSize = 30.000
 
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Gui Loaded", Text = "Made by noob_dabomb8/Liam"})
+
 Wlgui.Name = "Wl gui"
 Wlgui.Parent = Main
 Wlgui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
