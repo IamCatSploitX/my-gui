@@ -2,7 +2,7 @@
 -- Version: 3.2
 
 -- Instances:
-
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Gui Loaded", Text = "Made by noob_dabomb8/Liam"})
 local key = Instance.new("ScreenGui")
 local KeyFrame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
@@ -96,7 +96,6 @@ OPEN.TextSize = 55.000
 OPEN.MouseButton1Down:connect(function()
     Frame.Active = false
     Frame.Visible = false
-    game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Gui Loaded", Text = "Made by noob_dabomb8/Liam"})
 
 -- Made by noob_dabomb14
 -- Only works on wizard life
