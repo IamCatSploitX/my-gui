@@ -96,47 +96,8 @@ OPEN.TextSize = 55.000
 OPEN.MouseButton1Down:connect(function()
     Frame.Active = false
     Frame.Visible = false
-    -- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TextButton = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
-
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(21, 0, 58)
-Frame.Position = UDim2.new(0.383574873, 0, 0.37299034, 0)
-Frame.Size = UDim2.new(0, 325, 0, 213)
-Frame.Draggable = true
-Frame.Active = true
-
-TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.Position = UDim2.new(0.192136765, 0, 0.378062606, 0)
-TextButton.Size = UDim2.new(0, 200, 0, 50)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "Game Breaker"
-TextButton.TextColor3 = Color3.fromRGB(0, 255, 149)
-TextButton.TextSize = 14.000
-TextButton.MouseButton1Down:connect(function()
-
 end)
 
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.Size = UDim2.new(0, 325, 0, 28)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Made By noob_dabomb8"
-TextLabel.TextColor3 = Color3.fromRGB(0, 255, 149)
-TextLabel.TextSize = 14.000
 -- Made by noob_dabomb14
 -- Only works on wizard life
 -- Fixed by CODEX
