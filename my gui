@@ -115,7 +115,7 @@ Frame.BackgroundColor3 = Color3.fromRGB(21, 0, 58)
 Frame.Position = UDim2.new(0.383574873, 0, 0.37299034, 0)
 Frame.Size = UDim2.new(0, 325, 0, 213)
 Frame.Draggable = true
-Frame.Active = true
+Frame.Visible = false
 
 TextButton.Parent = Frame
 TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
