@@ -504,39 +504,6 @@ end)
         end
     end)
 
-    local q   = "avada kedavra"
-    local Key = "e" -- Key that toggles script
-    local plr       = game.Players.LocalPlayer
-    local char       =  plr.Character
-    local mouse       =  plr:GetMouse()
-    local avada  = false
-
-    function avadaspam()
-        local v = (mouse.Hit.p - char.HumanoidRootPart.Position).unit/2
-        local w = v *  (300000000)
-        local x = math.random(1, 100)
-        local y = char.HumanoidRootPart.Position + -v * -1
-        plr.PlayerGui.Client.fwp:Fire(y, w, true, q)
-        game.ReplicatedStorage.Events.ProjEvent:FireServer(y, w, q, x)
-    end
-
-    game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-   if string.lower(msg) == ".spamavada" and avada == false then
-      avada = true
-   elseif string.lower(msg) == ".spamavadaoff" and avada == true then
-   avada = false
-   end
-end)
-
-
-
-    mouse.Button1Down:connect(function()
-        while avada do
-            avadaspam()
-            wait(.001)
-        end
-    end)
-
     local q   = "expelliarmus"
     local Key = "e" -- Key that toggles script
     local plr       = game.Players.LocalPlayer
