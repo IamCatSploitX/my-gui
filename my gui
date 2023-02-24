@@ -218,9 +218,11 @@ mouse.KeyDown:connect(function(key)
 spawn(function() -- this starts the function if its on
         while wait() do -- this is a loop if its waiting then it will start the stuff below
             if Toggle == true then -- this is the requirement to turn it on
-                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak")
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", false)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", false)
                 wait(0.1)
-                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate")
+                game.ReplicatedStorage.Events.WandEvent:FireServer("Cloak", false)
+                game.ReplicatedStorage.Events.WandEvent:FireServer("apparate", false)
                 local plr     = game.Players.LocalPlayer    local char = plr.Character  char.Humanoid.WalkSpeed =199
                 elseif Toggle == false then
         local plr = game.Players.LocalPlayer    local char = plr.Character  char.Humanoid.WalkSpeed =16
