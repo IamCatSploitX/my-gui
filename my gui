@@ -185,7 +185,7 @@ spamscript.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 spamscript.Position         = UDim2.new(0.0514138825, 0, 0.511415482, 0)
 spamscript.Size             = UDim2.new(0, 160, 0, 35)
 spamscript.Font             = Enum.Font.SourceSans
-spamscript.Text             = "Tp Walk"
+spamscript.Text             = "Tp Walk G to toggle"
 spamscript.TextColor3       = Color3.fromRGB(0, 255, 149)
 spamscript.TextSize         = 14.000
 spamscript.MouseButton1Down:connect(function()
@@ -283,7 +283,7 @@ Opautoblock.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Opautoblock.Position = UDim2.new(0.29305914, 0, 0.753424644, 0)
 Opautoblock.Size = UDim2.new(0, 160, 0, 35)
 Opautoblock.Font = Enum.Font.SourceSans
-Opautoblock.Text = "Autoblock on"
+Opautoblock.Text = "Autoblock F To toggle"
 Opautoblock.TextColor3 = Color3.fromRGB(0, 255, 149)
 Opautoblock.TextSize = 14.000
 Opautoblock.MouseButton1Down:connect(function()
