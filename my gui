@@ -287,36 +287,7 @@ Opautoblock.Text = "Autoblock F To toggle"
 Opautoblock.TextColor3 = Color3.fromRGB(0, 255, 149)
 Opautoblock.TextSize = 14.000
 Opautoblock.MouseButton1Down:connect(function()
-local args = {
-    [1] = "Autoblock Made By noob_dabomb8 and aeon_bffr",
-    [2] = "All"
-}
-
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
-
-local enabled = false
-local key = "f"
-
-local m = game:GetService"Players".LocalPlayer:GetMouse()
-m.KeyDown:connect(function(k)
-if k == key then enabled = not enabled
-   end
-end)
-
-function Autoblock()
-game.ReplicatedStorage.Events.WandEvent:FireServer(3)
-wait(1.983)
-end
-
-spawn(function()
-   while wait() do
-       if enabled then
-           repeat
-               Autoblock()
-           until enabled == false
-       end
-   end
-end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IamCatSploitX/Autoblock/main/autoblock"))();
 end)
 
 local Keydown = "h"
